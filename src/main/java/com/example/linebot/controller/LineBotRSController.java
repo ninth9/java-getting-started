@@ -28,7 +28,7 @@ public class LineBotRSController {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
 	private String[] responses = new String[] { "別亂講話", "今天在幹嘛?", "去睡覺了哦", "去幫忙洗碗了哦", "洗澡了沒", "頭髮要梳哦", "還在玩", "去幫忙折衣服",
-			"很晚了哦", "不用念書嗎", "功課寫完了嗎", "有幫忙作家事嗎?" };
+			"很晚了哦", "不用念書嗎", "功課寫完了嗎", "有幫忙作家事嗎?","要漱口哦","有蛀牙嗎","是臭小B嗎",":)","-_-",":D",";)","(⁎˃ᆺ˂)","(°ㅂ° ╬)","(¬_¬)"," (ఠ్ఠ ˓̭ ఠ్ఠ)"};
 
 	@RequestMapping(value = "/callback")
 	public void callback(@RequestBody String message) {
@@ -49,42 +49,42 @@ public class LineBotRSController {
 
 			switch(type) {
 			case "image":
-				replyMessage = "can't handle this type yet";
+				replyMessage = "目前還無法處理這種類的訊息";
 				break;
 			case "text":
 				int index = (int) (Math.random() * responses.length);
 				replyMessage = responses[index];
 				break;
 			case "video":
-				logger.info("can't handle this type yet");
+				replyMessage = "目前還無法處理這種類的訊息";
 				replyMessage = "can't handle this type yet";
 				break;
 			case "audio":
-				replyMessage = "can't handle this type yet";
+				replyMessage = "目前還無法處理這種類的訊息";
 				break;
 			case "file":
-				replyMessage = "can't handle this type yet";
+				replyMessage = "目前還無法處理這種類的訊息";
 				break;
 			case "location":
-				replyMessage = "can't handle this type yet";
+				replyMessage = "目前還無法處理這種類的訊息";
 				break;
 			case "sticker":
-				replyMessage = "can't handle this type yet";
+				replyMessage = "目前還無法處理這種類的訊息";
 				break;
 			case "unsend":
-				replyMessage = "can't handle this type yet";
+				replyMessage = "目前還無法處理這種類的訊息";
 				break;
 			case "follow":
-				replyMessage = "can't handle this type yet";
+				replyMessage = "目前還無法處理這種類的訊息";
 				break;
 			case "unfollow":
-				replyMessage = "can't handle this type yet";
+				replyMessage = "目前還無法處理這種類的訊息";
 				break;
 			case "join":
-				replyMessage = "can't handle this type yet";
+				replyMessage = "目前還無法處理這種類的訊息";
 				break;
 			default:
-				replyMessage = "can't handle this type yet";
+				replyMessage = "目前還無法處理這種類的訊息";
 			}
 			sendResponseMessages(replyToken, replyMessage);
 		}
