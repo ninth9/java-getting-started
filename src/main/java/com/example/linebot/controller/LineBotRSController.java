@@ -39,6 +39,7 @@ public class LineBotRSController {
 			HttpServletRequest httpRequest) {
 		for (Event event : events.getEvents()) {
 			String replyToken = event.getReplyToken();
+			logger.debug(event.getMessage().toString());
 			int index = (int) (Math.random() * responses.length);
 			sendResponseMessages(replyToken, responses[index]);
 		}
