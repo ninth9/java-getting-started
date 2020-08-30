@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.linebot.model.Event;
 import com.example.linebot.model.EventWrapper;
+import com.example.linebot.model.Message;
 
 @RestController
 public class LineBotRSController {
@@ -41,8 +42,51 @@ public class LineBotRSController {
 			String replyToken = event.getReplyToken();
 			System.out.println("request message:"+event.getMessage().toString());
 			logger.info("request message:"+event.getMessage().getText());
-			int index = (int) (Math.random() * responses.length);
-			sendResponseMessages(replyToken, responses[index]);
+			Message message = event.getMessage();
+			String type = message.getType();
+			logger.info("type: "+type);
+			String replyMessage = "";
+
+			switch(type) {
+			case "image":
+				replyMessage = "can't handle this type yet";
+				break;
+			case "text":
+				int index = (int) (Math.random() * responses.length);
+				replyMessage = responses[index];
+				break;
+			case "video":
+				logger.info("can't handle this type yet");
+				replyMessage = "can't handle this type yet";
+				break;
+			case "audio":
+				replyMessage = "can't handle this type yet";
+				break;
+			case "file":
+				replyMessage = "can't handle this type yet";
+				break;
+			case "location":
+				replyMessage = "can't handle this type yet";
+				break;
+			case "sticker":
+				replyMessage = "can't handle this type yet";
+				break;
+			case "unsend":
+				replyMessage = "can't handle this type yet";
+				break;
+			case "follow":
+				replyMessage = "can't handle this type yet";
+				break;
+			case "unfollow":
+				replyMessage = "can't handle this type yet";
+				break;
+			case "join":
+				replyMessage = "can't handle this type yet";
+				break;
+			default:
+				replyMessage = "can't handle this type yet";
+			}
+			sendResponseMessages(replyToken, replyMessage);
 		}
 	}
 
