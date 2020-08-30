@@ -40,7 +40,7 @@ public class LineBotRSController {
 		for (Event event : events.getEvents()) {
 			String replyToken = event.getReplyToken();
 			System.out.println("request message:"+event.getMessage().toString());
-			
+			logger.info("request message:"+event.getMessage().getText());
 			int index = (int) (Math.random() * responses.length);
 			sendResponseMessages(replyToken, responses[index]);
 		}
